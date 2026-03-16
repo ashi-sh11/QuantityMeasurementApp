@@ -1,0 +1,21 @@
+### VS Code ###
+.vscode/
+
+# Compiled class files
+*.class
+*.jar
+*.log
+
+# macOS system files
+.DS_Store
+
+# IntelliJ IDEA files
+*.iml
+.idea/
+
+# Build folders
+target/
+bin/
+out/
+build/
+dist/
