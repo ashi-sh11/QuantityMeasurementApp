@@ -1,4 +1,6 @@
 import quantitymeasurement.QuantityMeasurementApp.Feet;
+import quantitymeasurement.QuantityMeasurementApp.Inches;
+
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -35,5 +37,13 @@ public class UseCase1_Testing {
     public void testFeetEquality_SameReference(){
         Feet f1 = new Feet(1.0);
         assertEquals(f1,f1);
+    }
+
+
+    @Test
+    void testEquality_InchesSameValue() {
+        Inches i1 = new Inches(5.0);
+        Inches i2 = new Inches(5.0);
+        assertTrue(i1.equals(i2));
     }
 }
