@@ -66,6 +66,16 @@ public class Length {
         double ans =  convertFromBaseToTargetUnit(sum,this.unit);
         return new Length(ans , this.unit);
     }
+    public static Length add(Length l1, Length l2, LengthUnit targetUnit) {
+        if (l1 == null || l2 == null || targetUnit == null) {
+            throw new IllegalArgumentException("Invalid input");
+        }
+        double l1Feet = l1.convertToBaseUnit();
+        double l2Feet = l2.convertToBaseUnit();
+        double sumFeet = l1Feet + l2Feet;
+        double result = l1.convertFromBaseToTargetUnit(sumFeet,targetUnit);
+        return new Length(result, targetUnit);
+    }
 
     @Override
     public String toString() {
