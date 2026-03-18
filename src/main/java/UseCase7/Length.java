@@ -1,8 +1,8 @@
-package UseCase6;
+package UseCase7;
 
 public class Length {
     private double value;
-    private LengthUnit unit;
+    public LengthUnit unit;
 
     public enum LengthUnit{
         FEET(12.0),
@@ -58,13 +58,13 @@ public class Length {
         return lengthInInches / targetUnit.getFactor();
     }
 
-    public  Length add (Length l1 ){
-        if(l1 == null || this == null)  throw new IllegalArgumentException("Length cannot be null");
+    public  Length add (Length l1 ,LengthUnit targetUnit){
+        if(l1 == null || targetUnit == null)  throw new IllegalArgumentException("Length cannot be null");
         double first = this.convertToBaseUnit();
         double second = l1.convertToBaseUnit();
         double sum = first+second;
-        double ans =  convertFromBaseToTargetUnit(sum,this.unit);
-        return new Length(ans , this.unit);
+        double ans =  convertFromBaseToTargetUnit(sum,targetUnit);
+        return new Length(ans , targetUnit);
     }
 
     @Override
