@@ -2,7 +2,7 @@ package UseCase9;
 
 public class Length {
     private double value;
-    private LengthUnit unit ;
+    private LengthUnit unit ;//
 
     public Length(double value, LengthUnit unit) {
 
