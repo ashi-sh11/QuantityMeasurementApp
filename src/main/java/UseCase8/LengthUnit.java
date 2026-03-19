@@ -5,7 +5,7 @@ public enum LengthUnit {
     INCHES(1.0),
     YARDS(36.0),
     CENTIMETERS(0.393701);
-    private double factor;
+    private double factor;//
 
     LengthUnit(double factor){
         this.factor = factor;
