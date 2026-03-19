@@ -1,9 +1,12 @@
 package UseCase9;
 
+<<<<<<< HEAD:src/main/java/UseCase9/QuantityMeasurementapp.java
 import UseCase9.Length;
 import UseCase9.Length;
 
 
+=======
+>>>>>>> feature/UC8-RefactoringUnit:src/main/java/UseCase8/QuantityMeasurementapp.java
 public class QuantityMeasurementapp {
      static void main(String[] args) {
 
