@@ -1,4 +1,4 @@
-package org.example.UseCase9;
+package UseCase9;
 
 public class QuantityMeasurementApp {
      static void main(String[] args) {

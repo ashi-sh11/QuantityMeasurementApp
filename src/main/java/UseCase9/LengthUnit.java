@@ -1,4 +1,4 @@
-package org.example.UseCase9;
+package UseCase9;
 
 public enum LengthUnit {
     FEET(12.0),

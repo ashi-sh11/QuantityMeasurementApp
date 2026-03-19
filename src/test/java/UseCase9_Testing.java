@@ -1,8 +1,8 @@
 
-import org.example.UseCase9.Length;
-import org.example.UseCase9.LengthUnit;
-import org.example.UseCase9.Weight;
-import org.example.UseCase9.WeightUnit;
+import UseCase9.Length;
+import UseCase9.LengthUnit;
+import UseCase9.Weight;
+import UseCase9.WeightUnit;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 

@@ -1,4 +1,4 @@
-package org.example.UseCase9;
+package UseCase9;
 
 public class Length {
     private double value;
