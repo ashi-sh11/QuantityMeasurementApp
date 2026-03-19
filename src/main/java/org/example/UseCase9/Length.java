@@ -1,4 +1,4 @@
-package UseCase8;
+package org.example.UseCase9;
 
 public class Length {
     private double value;
@@ -79,11 +79,9 @@ public class Length {
     public double convertToBaseUnit(){
         return round(unit.convertToBaseUnit(value));
     }
-
     public double convertBaseToTargetUnit(double lengthInInches , LengthUnit targetUnit){
         return round(targetUnit.convertFromBaseUnit(lengthInInches));
     }
-
     @Override
     public String toString() {
         return "Quantity(" + value + ", " + unit + ")";
