@@ -1,111 +1,113 @@
 package UseCase9;
 
+
+
 public class QuantityMeasurementApp {
-     static void main(String[] args) {
+   static void main(String[] args) {
 
-        Length l1 = new Length(1.0, LengthUnit.FEET);
-        Length converted = l1.convertTo(LengthUnit.INCHES);
-        System.out.println("Convert 1 FEET to INCHES → " + converted);
-
-
-        Length l2 = new Length(12.0, LengthUnit.INCHES);
-        System.out.println("1 FEET == 12 INCHES → " + l1.equals(l2));
+      Length l1 = new Length(1.0, LengthUnit.FEET);
+      Length converted = l1.convertTo(LengthUnit.INCHES);
+      System.out.println("Convert 1 FEET to INCHES → " + converted);
 
 
-        Length l3 = new Length(1.0, LengthUnit.YARDS);
-        Length l4 = new Length(36.0, LengthUnit.INCHES);
-        System.out.println("1 YARD == 36 INCHES → " + l3.equals(l4));
+      Length l2 = new Length(12.0, LengthUnit.INCHES);
+      System.out.println("1 FEET == 12 INCHES → " + l1.equals(l2));
 
 
-        Length l5 = new Length(1.0, LengthUnit.FEET);
-        Length l6 = new Length(12.0, LengthUnit.INCHES);
-        Length result1 = l5.add(l6);
-        System.out.println("1 FEET + 12 INCHES → " + result1);
-
-        Length result2 = l5.addAndConvert(l6, LengthUnit.INCHES);
-        System.out.println("1 FEET + 12 INCHES (IN INCHES) → " + result2);
+      Length l3 = new Length(1.0, LengthUnit.YARDS);
+      Length l4 = new Length(36.0, LengthUnit.INCHES);
+      System.out.println("1 YARD == 36 INCHES → " + l3.equals(l4));
 
 
-        Length l7 = new Length(1.0, LengthUnit.YARDS);
-        Length l8 = new Length(3.0, LengthUnit.FEET);
-        System.out.println("1 YARD + 3 FEET → " + l7.add(l8));
+      Length l5 = new Length(1.0, LengthUnit.FEET);
+      Length l6 = new Length(12.0, LengthUnit.INCHES);
+      Length result1 = l5.add(l6);
+      System.out.println("1 FEET + 12 INCHES → " + result1);
+
+      Length result2 = l5.addAndConvert(l6, LengthUnit.INCHES);
+      System.out.println("1 FEET + 12 INCHES (IN INCHES) → " + result2);
 
 
-        Length l9 = new Length(2.54, LengthUnit.CENTIMETERS);
-        System.out.println("2.54 CM to INCHES → " + l9.convertTo(LengthUnit.INCHES));
+      Length l7 = new Length(1.0, LengthUnit.YARDS);
+      Length l8 = new Length(3.0, LengthUnit.FEET);
+      System.out.println("1 YARD + 3 FEET → " + l7.add(l8));
 
 
-        Length l10 = new Length(5.0, LengthUnit.FEET);
-        Length l11 = new Length(0.0, LengthUnit.INCHES);
-
-        System.out.println("5 FEET + 0 INCHES → " + l10.add(l11));
+      Length l9 = new Length(2.54, LengthUnit.CENTIMETERS);
+      System.out.println("2.54 CM to INCHES → " + l9.convertTo(LengthUnit.INCHES));
 
 
-        Length l12 = new Length(5.0, LengthUnit.FEET);
-        Length l13 = new Length(-2.0, LengthUnit.FEET);
+      Length l10 = new Length(5.0, LengthUnit.FEET);
+      Length l11 = new Length(0.0, LengthUnit.INCHES);
 
-        System.out.println("5 FEET + (-2 FEET) → " + l12.add(l13));
-
-
-        double base = LengthUnit.INCHES.convertToBaseUnit(12.0);
-        System.out.println("12 INCHES to FEET (base) → " + base);
-
-        double back = LengthUnit.INCHES.convertFromBaseUnit(1.0);
-        System.out.println("1 FEET to INCHES → " + back);
+      System.out.println("5 FEET + 0 INCHES → " + l10.add(l11));
 
 
-        //Weight class demo
+      Length l12 = new Length(5.0, LengthUnit.FEET);
+      Length l13 = new Length(-2.0, LengthUnit.FEET);
+
+      System.out.println("5 FEET + (-2 FEET) → " + l12.add(l13));
 
 
-        Weight w1 = new Weight(1.0, WeightUnit.KILOGRAM);
-        Weight w2 = new Weight(1.0, WeightUnit.KILOGRAM);
-        System.out.println("1 KG == 1 KG → " + w1.equals(w2));
+      double base = LengthUnit.INCHES.convertToBaseUnit(12.0);
+      System.out.println("12 INCHES to FEET (base) → " + base);
 
-        Weight w3 = new Weight(1.0, WeightUnit.KILOGRAM);
-        Weight w4 = new Weight(1000.0, WeightUnit.GRAM);
-        System.out.println("1 KG == 1000 G → " + w3.equals(w4));
-
-        Weight w5 = new Weight(1.0, WeightUnit.KILOGRAM);
-        Weight w6 = new Weight(2.20462, WeightUnit.POUND);
-        System.out.println("1 KG == 2.20462 LB → " + w5.equals(w6));
-
-        Weight w7 = new Weight(1.0, WeightUnit.KILOGRAM);
-        Weight converted1 = w7.convertTo(WeightUnit.GRAM);
-        System.out.println("1 KG to GRAM → " + converted1);
-
-        Weight w8 = new Weight(2.0, WeightUnit.POUND);
-        System.out.println("2 LB to KG → " + w8.convertTo(WeightUnit.KILOGRAM));
-
-        Weight w9 = new Weight(1.0, WeightUnit.KILOGRAM);
-        Weight w10 = new Weight(2.0, WeightUnit.KILOGRAM);
-        System.out.println("1 KG + 2 KG → " + w9.add(w10));
-
-        Weight w11 = new Weight(1.0, WeightUnit.KILOGRAM);
-        Weight w12 = new Weight(1000.0, WeightUnit.GRAM);
-        System.out.println("1 KG + 1000 G → " + w11.add(w12));
-        System.out.println("1 KG + 1000 G (in GRAM) → " + w11.add(w12, WeightUnit.GRAM));
+      double back = LengthUnit.INCHES.convertFromBaseUnit(1.0);
+      System.out.println("1 FEET to INCHES → " + back);
 
 
-        Weight w13 = new Weight(1.0, WeightUnit.POUND);
-        Weight w14 = new Weight(1.0, WeightUnit.KILOGRAM);
-        System.out.println("1 LB + 1 KG → " + w13.add(w14));
+      //Weight class demo
 
 
-        Weight w15 = new Weight(5.0, WeightUnit.KILOGRAM);
-        Weight w16 = new Weight(0.0, WeightUnit.GRAM);
-        System.out.println("5 KG + 0 G → " + w15.add(w16));
+      Weight w1 = new Weight(1.0, WeightUnit.KILOGRAM);
+      Weight w2 = new Weight(1.0, WeightUnit.KILOGRAM);
+      System.out.println("1 KG == 1 KG → " + w1.equals(w2));
+
+      Weight w3 = new Weight(1.0, WeightUnit.KILOGRAM);
+      Weight w4 = new Weight(1000.0, WeightUnit.GRAM);
+      System.out.println("1 KG == 1000 G → " + w3.equals(w4));
+
+      Weight w5 = new Weight(1.0, WeightUnit.KILOGRAM);
+      Weight w6 = new Weight(2.20462, WeightUnit.POUND);
+      System.out.println("1 KG == 2.20462 LB → " + w5.equals(w6));
+
+      Weight w7 = new Weight(1.0, WeightUnit.KILOGRAM);
+      Weight converted1 = w7.convertTo(WeightUnit.GRAM);
+      System.out.println("1 KG to GRAM → " + converted1);
+
+      Weight w8 = new Weight(2.0, WeightUnit.POUND);
+      System.out.println("2 LB to KG → " + w8.convertTo(WeightUnit.KILOGRAM));
+
+      Weight w9 = new Weight(1.0, WeightUnit.KILOGRAM);
+      Weight w10 = new Weight(2.0, WeightUnit.KILOGRAM);
+      System.out.println("1 KG + 2 KG → " + w9.add(w10));
+
+      Weight w11 = new Weight(1.0, WeightUnit.KILOGRAM);
+      Weight w12 = new Weight(1000.0, WeightUnit.GRAM);
+      System.out.println("1 KG + 1000 G → " + w11.add(w12));
+      System.out.println("1 KG + 1000 G (in GRAM) → " + w11.add(w12, WeightUnit.GRAM));
 
 
-        Weight w17 = new Weight(5.0, WeightUnit.KILOGRAM);
-        Weight w18 = new Weight(-2.0, WeightUnit.KILOGRAM);
-        System.out.println("5 KG + (-2 KG) → " + w17.add(w18));
+      Weight w13 = new Weight(1.0, WeightUnit.POUND);
+      Weight w14 = new Weight(1.0, WeightUnit.KILOGRAM);
+      System.out.println("1 LB + 1 KG → " + w13.add(w14));
 
 
-        Weight w19 = new Weight(1_000_000.0, WeightUnit.GRAM);
-        Weight w20 = new Weight(1000.0, WeightUnit.KILOGRAM);
-        System.out.println("Large values equal → " + w19.equals(w20));
+      Weight w15 = new Weight(5.0, WeightUnit.KILOGRAM);
+      Weight w16 = new Weight(0.0, WeightUnit.GRAM);
+      System.out.println("5 KG + 0 G → " + w15.add(w16));
+
+
+      Weight w17 = new Weight(5.0, WeightUnit.KILOGRAM);
+      Weight w18 = new Weight(-2.0, WeightUnit.KILOGRAM);
+      System.out.println("5 KG + (-2 KG) → " + w17.add(w18));
+
+
+      Weight w19 = new Weight(1_000_000.0, WeightUnit.GRAM);
+      Weight w20 = new Weight(1000.0, WeightUnit.KILOGRAM);
+      System.out.println("Large values equal → " + w19.equals(w20));
 
 
 
-    }
+   }
 }
