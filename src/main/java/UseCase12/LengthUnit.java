@@ -1,7 +1,7 @@
 package UseCase12;
 
 
-public enum LengthUnitUC implements IMeasurableUC12 {
+public enum LengthUnitUC implements IMeasurable {
 
     FEET(12.0),
     INCHES(1.0),
