@@ -1,10 +1,11 @@
-import UseCase12.LengthUnit;
-import UseCase12.Quantity;
-import UseCase12.WeightUnit;
+import Com.apps.QuantityMeasurementApp.UseCase13.LengthUnit;
+import Com.apps.QuantityMeasurementApp.UseCase13.Quantity;
+import Com.apps.QuantityMeasurementApp.UseCase13.WeightUnit;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-class UseCase12_Testing {
+class UseCase13_Testing {
+    //Use Case 12 Testing
 
     private static final double EPS = 0.01;
 
@@ -102,12 +103,82 @@ class UseCase12_Testing {
     }
 
     @Test
-    void testImmutability() {
+    void testImmutability1() {
         Quantity<LengthUnit> q1 = new Quantity<>(10, LengthUnit.FEET);
         Quantity<LengthUnit> q2 = new Quantity<>(5, LengthUnit.FEET);
 
         q1.subtract(q2);
 
-        assertEquals(10, q1.getValue()); // unchanged
+        assertEquals(10, q1.getValue());
+    }
+
+    //Use Case 13 Testing
+    @Test
+    void testArithmeticOperation_Add() {
+        assertEquals(15.0,
+                invoke(Quantity.ArithmeticOperation.ADD, 10, 5));
+    }
+
+    @Test
+    void testAdd() {
+        Quantity<LengthUnit> q1 = new Quantity<>(1, LengthUnit.FEET);
+        Quantity<LengthUnit> q2 = new Quantity<>(12, LengthUnit.INCHES);
+
+        assertEquals(2.0, q1.add(q2).getValue(), EPS);
+    }
+
+    @Test
+    void testSubtract() {
+        Quantity<LengthUnit> q1 = new Quantity<>(10, LengthUnit.FEET);
+        Quantity<LengthUnit> q2 = new Quantity<>(6, LengthUnit.INCHES);
+
+        assertEquals(9.5, q1.subtract(q2).getValue(), EPS);
+    }
+
+    @Test
+    void testDivide() {
+        Quantity<LengthUnit> q1 = new Quantity<>(10, LengthUnit.FEET);
+        Quantity<LengthUnit> q2 = new Quantity<>(2, LengthUnit.FEET);
+
+        assertEquals(5.0, q1.divide(q2), EPS);
+    }
+
+    @Test
+    void testNullOperand() {
+        Quantity<LengthUnit> q = new Quantity<>(10, LengthUnit.FEET);
+
+        assertThrows(IllegalArgumentException.class, () -> q.add(null));
+    }
+
+    @Test
+    void testCrossCategory() {
+        Quantity<LengthUnit> l = new Quantity<>(10, LengthUnit.FEET);
+        Quantity<WeightUnit> w = new Quantity<>(5, WeightUnit.KILOGRAM);
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            l.add((Quantity) w);
+        });
+    }
+
+    @Test
+    void testDivideByZero() {
+        Quantity<LengthUnit> q1 = new Quantity<>(10, LengthUnit.FEET);
+        Quantity<LengthUnit> q2 = new Quantity<>(0, LengthUnit.FEET);
+
+        assertThrows(ArithmeticException.class, () -> q1.divide(q2));
+    }
+
+    @Test
+    void testImmutability() {
+        Quantity<LengthUnit> q1 = new Quantity<>(10, LengthUnit.FEET);
+        Quantity<LengthUnit> q2 = new Quantity<>(5, LengthUnit.FEET);
+
+        q1.add(q2);
+
+        assertEquals(10, q1.getValue());
+    }
+
+    private double invoke(Enum<?> op, double a, double b) {
+        return ((Quantity.ArithmeticOperation) op).apply(a, b);
     }
 }

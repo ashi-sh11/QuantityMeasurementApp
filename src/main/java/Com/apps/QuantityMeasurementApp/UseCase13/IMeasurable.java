@@ -1,4 +1,4 @@
-package UseCase12;
+package Com.apps.QuantityMeasurementApp.UseCase13;
 
 public interface IMeasurable {
     public double getConversionFactor();
